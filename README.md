@@ -4,7 +4,7 @@
 * Team Number: 02
 * Team Name: The Algorithm
 * Team Members: Derek He, Ben Saxon, Eric Li
-* GitHub Repository URL:
+* GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-the-algorithm
 * GitHub Pages Website URL: [for final submission]
 
 ## Final Project Proposal
@@ -12,6 +12,8 @@
 ### 1. Abstract
 
 *In a few sentences, describe your final project.*
+
+We are creating a robotic screwdriver. We use a delta robot manipulator as our robotic arm, providing precise millimeter-level 3-dimensional control of the screwdriver attached to the end effector of our robotic arm. Equipped with computer vision, the robotic screwdriver contains a camera which detects the desired screws to screw in, and maps the coordinates of the screws to the corresponding motor control coordinates for the delta robot manipulator, which - in turn - will screw in the screws and assemble our object.
 
 ### 2. Motivation
 
