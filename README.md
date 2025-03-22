@@ -37,15 +37,15 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 **5.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+Our project contains three subsystems: data from sensors computer vision (abbreviated as CV), 
 
 **5.2 Functionality**
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | The before every screw assembly operation, the camera will report the (x, y) coordinates of all the screws which need to be assembled. This information will be sen                                                                                                               |
-| SRS-02 | The distance sensor shall operate and report values at least every .5 seconds.                                                                                                                                           |
-| SRS-03 | Upon non-nominal distance detected (i.e., the trap mechanism has changed at least 10 cm from the nominal range), the system shall be able to detect the change and alert the user in a timely manner (within 5 seconds). |
+| SRS-01 | The before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the ATmega328pb, and the ATmega328pb will rotate the screwdriver to an angle which matches the screw drive. |
+| SRS-02 | The ATmega328pb will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. |
+| SRS-03 | If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the ATmega328pb will realize that the screwdriver has made sufficient contact with the screw. |
 | SRS-04 | Upon a request from the user, the system shall get an image from the internal camera and upload the image to the user system within 10s.                                                                                 |
 
 ### 6. Hardware Requirements Specification (HRS)
