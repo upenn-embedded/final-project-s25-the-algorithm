@@ -37,7 +37,7 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 **5.1 Definitions, Abbreviations**
 
-Be it henceforth known, under the jurisdiction of the Commonwealth of Pennsylvania, that the ATmega328pb will be referred to as the "MCU."
+Be it henceforth known, under the jurisdiction of the City of Philadelphia, Commonwealth of Pennsylvania, and United States of America, that the "ATmega328pb" will be referred to as the "MCU." The "end effector" is the part of the robotic arm which makes contact with objects: in our project, the end effector is the screwdriver attached to a brushed DC motor. The "screw drive" is the recession pattern contained in the screw head.
 
 **5.2 Functionality**
 
