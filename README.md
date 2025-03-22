@@ -13,11 +13,13 @@
 
 *In a few sentences, describe your final project.*
 
-We are creating a robotic screwdriver. We use a delta robot manipulator as our robotic arm, providing precise millimeter-level 3-dimensional control of the screwdriver attached to the end effector of our robotic arm. Equipped with computer vision, the robotic screwdriver contains a camera which detects the desired screws to screw in, and maps the coordinates of the screws to the corresponding motor control coordinates for the delta robot manipulator, which - in turn - will screw in the screws and assemble our object.
+We are creating a robotic screwdriver. We use a delta robot manipulator as our robotic arm, providing precise millimeter-level 3-dimensional control of the screwdriver attached to the end effector of our robotic arm. Equipped with computer vision, the robotic screwdriver contains a camera which detects the desired screws to screw in, and maps the coordinates of the screws to the corresponding motor control coordinates for the delta robot manipulator, which - in turn - will screw or unscrew the screws and assemble or disassemble our object.
 
 ### 2. Motivation
 
 *What is the problem that you are trying to solve? Why is this project interesting? What is the intended purpose?*
+
+With our project, we are trying to solve the problem of manual assembly for manufacturing products which include screws. This project is interesting because of its immense potential: it can be applied to almost any manufacturing process and has the potential to enhance such processes. Its intended purpose, to automate the assembly process for screws, enables us to resolve a major bottleneck in the manufacturing process and in turn increase throughput.
 
 ### 3. System Block Diagram
 
