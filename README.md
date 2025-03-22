@@ -37,16 +37,16 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 **5.1 Definitions, Abbreviations**
 
-Here are some definitions for our project.
+Be it henceforth known, under the jurisdiction of the Commonwealth of Pennsylvania, that the ATmega328pb will be referred to as the "MCU."
 
 **5.2 Functionality**
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | Before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the ATmega328pb, and the ATmega328pb will rotate the screwdriver to an angle which matches the screw drive. |
-| SRS-02 | The ATmega328pb will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the ATmega328pb will realize that the screwdriver has made sufficient contact with the screw. |
-| SRS-03 | The ATmega328pb will contain an interrupt for when the brushed DC motor attached to the screwdriver has a current which exceeds the threshold for a jam for more than 0.20 seconds. After receiving this interrupt, we will know that the screw has been successfully assembled: the brushed DC motor will be turned off, and the robotic arm will assemble the next screw. |
-| SRS-04 | The ATmega328pb will respond to various pin change interrupts from buttons (a START/RESUME button, PAUSE button, and emergency STOP button) |
+| SRS-01 | Before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the MCU, and the MCU will rotate the screwdriver to an angle which matches the screw drive. |
+| SRS-02 | The MCU will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the MCU will realize that the screwdriver has made sufficient contact with the screw. |
+| SRS-03 | The MCU will contain an interrupt for when the brushed DC motor attached to the screwdriver has a current which exceeds the threshold for a jam for more than 0.20 seconds. After receiving this interrupt, we will know that the screw has been successfully assembled: the brushed DC motor will be turned off, and the robotic arm will assemble the next screw. |
+| SRS-04 | The MCU will respond to various pin change interrupts from buttons (a START/RESUME button, PAUSE button, and emergency STOP button) |
 
 ### 6. Hardware Requirements Specification (HRS)
 
