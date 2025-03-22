@@ -1,9 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/WXeqVgks)
 # final-project-skeleton
 
-* Team Number:
-* Team Name:
-* Team Members:
+* Team Number: 02
+* Team Name: The Algorithm
+* Team Members: Derek He, Ben Saxon, Eric Li
 * GitHub Repository URL:
 * GitHub Pages Website URL: [for final submission]
 
