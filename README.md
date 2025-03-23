@@ -43,12 +43,12 @@ Be it henceforth known, under the jurisdiction of the City of Philadelphia, Comm
 
 | ID     | Description                                                                                                                                                                                                              |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| SRS-01 | Before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the MCU, and the MCU will rotate the screwdriver to an angle which matches the screw drive. |
-| SRS-02 | The MCU will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the MCU will realize that the screwdriver has made sufficient contact with the screw. |
-| SRS-03 | While the screwdriver is turning the screw, the MCU will poll the motor current every 0.01 seconds and stio when the brushed DC motor attached to the screwdriver has a current which exceeds the threshold for a jam for more than 20 consecutive polls. At this point, we will know that the screw has been successfully assembled: the brushed DC motor will be turned off, and the robotic arm will assemble the next screw. |
-| SRS-04 | A closed-loop feedback algorithm will be used for state estimation of each of the three stepper motors controlling the robot arm, as well as for the screwdriver position.  |
-| SRS-05 | A closed-loop feedback algorithm, based on data from motor encoder, will be used to track the angular displacement of the screwdriver. This information will be used to calculate the z-axis displacement of the screwdriver needed to make sufficient contact with the screw. |
-| SRS-06 | The MCU will respond to various pin change interrupts from buttons (a START/RESUME button, PAUSE button, and emergency STOP button) |
+| SRS-01 | Camera and computer vision: Before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the MCU, and the MCU will rotate the screwdriver to an angle which matches the screw drive. |
+| SRS-02 | Screwdriver engagement with screw identification: The MCU will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the MCU will realize that the screwdriver has made sufficient contact with the screw. |
+| SRS-03 | Screwdriver completed screwing detection: While the screwdriver is turning the screw, the MCU will poll the motor current every 0.01 seconds and stop when the brushed DC motor attached to the screwdriver has a current which exceeds the threshold for a jam for more than 20 consecutive polls. At this point, we will know that the screw has been successfully assembled: the brushed DC motor will be turned off, and the robotic arm will assemble the next screw. |
+| SRS-04 | Robot arm controls: A closed-loop feedback algorithm will be used for state estimation of each of the three stepper motors controlling the robot arm, as well as for the screwdriver position.  |
+| SRS-05 | Z-axis control during screwing: A closed-loop feedback algorithm, based on data from motor encoder, will be used to track the angular displacement of the screwdriver. This information will be used to calculate the z-axis displacement of the screwdriver needed to make sufficient contact with the screw. |
+| SRS-06 | Handle user input: The MCU will respond to various pin change interrupts from buttons (a START/RESUME button, PAUSE button, and emergency STOP button) |
 
 ### 6. Hardware Requirements Specification (HRS)
 
@@ -58,16 +58,20 @@ Be it henceforth known, under the jurisdiction of the City of Philadelphia, Comm
 
 **6.1 Definitions, Abbreviations**
 
-Here, you will define any special terms, acronyms, or abbreviations you plan to use for hardware
+No additional definitions are needed. 
 
 **6.2 Functionality**
 
 | ID     | Description                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. |
-| HRS-02 | A noisemaker shall be inside the trap with a strength of at least 55 dB.                                                           |
-| HRS-03 | An electronic motor shall be used to reset the trap remotely and have a torque of 40 Nm in order to reset the trap mechanism.      |
-| HRS-04 | A camera sensor shall be used to capture images of the trap interior. The resolution shall be at least 480p.                       |
+| HRS-01 | Camera and computer vision: Camera resolution must be at least 480p with 30 fps to perform precise object detection, segmentation, and evaluate coordinate positions and distances from the camera. We expect a position detection with error of 1 mm maximum.  |
+| HRS-02 | Screwdriver engagement with screw identification: The resolution for the delta manipulator's stepper motor encoders must be within 0.5 mm displacement such that it can detect z-axis displacements to know if the screwdriver is stuck unable to move downwards further, implying it is engaged with the screw.  |
+| HRS-03 | Screwdriver completed screwing detection: The ADC that reads the DC motor encoder data must be 12-bit to have sufficient precision to detect whether the current spike indicates a jam. This resolution can be adjusted based on our tests. |
+| HRS-04 | Robot arm controls: Joints must maintain positional accuracy within 0.5 mm after repeated cycles of testing. We will evaluate the repeatability of the accuracy of the position across many cycles. |
+| HRS-05 | Z-axis control during screwing: The resolution for the brush motor's motor encoders must be within 1% to accurately track the angular displacement of the screwdriver. This will allow us to calculate the z-axis displacement of the screwdriver. |
+| HRS-06 | Handle user input: Buttons must reliably register input with debounce latency of 20 ms. |
+| HRS-07 | Communication: Communication lines must support reliable data transmission at 100 kHz without data loss, latency, or synchronization errors. I2C communication will be used across the Raspberry Pi and the ATmega328PB. |
+| HRS-08 | Power Management: Power supply must consistently provide regulated voltage and currency capacity. A 24V and 15A Voltage Regulator is sufficent for the system. |
 
 ### 7. Bill of Materials (BOM)
 
