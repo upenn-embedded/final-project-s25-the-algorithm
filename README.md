@@ -35,8 +35,10 @@ Our project will be a delta manipulator that uses camera input, a raspberry pi, 
 <img width="167" alt="image" src="https://github.com/user-attachments/assets/246c85de-74aa-4393-b4c2-3160263a6c03" />
 Full Assembly
 
+
 <img width="158" alt="image" src="https://github.com/user-attachments/assets/de31c72b-3bb7-41ac-a999-a4601d8e977a" />
 Delta Manipulator Body
+
 
 <img width="168" alt="image" src="https://github.com/user-attachments/assets/5309950d-9d6b-414a-bd1a-bf023f9f7a14" />
 End Effector 
