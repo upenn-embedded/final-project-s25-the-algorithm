@@ -91,12 +91,12 @@ No additional definitions are needed.
 
 *You've got limited time to get this project done! How will you plan your sprint milestones? How will you distribute the work within your team? Review the schedule in the final project manual for exact dates.*
 
-| Milestone  | Functionality Achieved | Distribution of Work |
-| ---------- | ---------------------- | -------------------- |
-| Sprint #1  |                        |                      |
-| Sprint #2  |                        |                      |
-| MVP Demo   |                        |                      |
-| Final Demo |                        |                      |
+| Milestone  | Functionality Achieved       | Distribution of Work                               |
+| ---------- | ---------------------------- | --------------------------------------------       |
+| Sprint #1  | Build delta robot            | Ordering parts, physical assembly, machining (Ben) |
+| Sprint #2  | IK functionality             | Basic algorithm deployment, testing                |
+| MVP Demo   | IK, standalone screwdriver   | Screwdriver assembly (Derek), path planning (Eric) |
+| Final Demo | Full kinematics +screwdriver | OpenCV development (Eric)                          |
 
 **This is the end of the Project Proposal section. The remaining sections will be filled out based on the milestone schedule.**
 
