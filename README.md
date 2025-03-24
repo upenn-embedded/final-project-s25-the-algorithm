@@ -30,6 +30,8 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 *What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?*
 
+Our project will be a delta manipulator that uses camera input, a raspberry pi, and the AVR board to perform computer vision, path planning, and inverse kinematics for real-time assembly and dissasembly of parts. We will use a waterjet at Pennovation to manufacture a quarter-inch thick top plate. In addition, we will use a saw (either hand saw or angle grinder, TBD) to cut the 2020 extrusions down to size. We will use 3D printing for the end effector. 
+
 <img width="167" alt="image" src="https://github.com/user-attachments/assets/246c85de-74aa-4393-b4c2-3160263a6c03" />
 Full Assembly
 
