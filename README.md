@@ -78,6 +78,9 @@ No additional definitions are needed.
 
 *What major components do you need and why? Try to be as specific as possible. Your Hardware & Software Requirements Specifications should inform your component choices.*
 
+Here is our BOM: https://docs.google.com/spreadsheets/d/1XaGem2oc90u5TyTIHajpD4cKOrVFxEH9lh6wl16X_gg/edit?usp=sharing
+We need NEMA23 motors, motor controllers, a power supply, flange couplers, NEMA23 mount brackets, ball joint rod ends, rods, geared motor (for the screwdriver), a dc motor driver, current sensor, aluminum plate, and aluminum extrusion. These are critical to assemble our structure, delta manipulator, and electronics. Please refer to the CAD for how these components attach and work together.
+
 *In addition to this written response, copy the Final Project BOM Google Sheet and fill it out with your critical components (think: processors, sensors, actuators). Include the link to your BOM in this section.*
 
 ### 8. Final Demo Goals
