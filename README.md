@@ -30,6 +30,16 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 *What will your project look like? Do you have any critical design features? Will you need any special manufacturing techniques to achieve your vision, like power tools, laser cutting, or 3D printing?*
 
+<img width="167" alt="image" src="https://github.com/user-attachments/assets/246c85de-74aa-4393-b4c2-3160263a6c03" />
+Full Assembly
+
+<img width="158" alt="image" src="https://github.com/user-attachments/assets/de31c72b-3bb7-41ac-a999-a4601d8e977a" />
+Delta Manipulator Body
+
+<img width="168" alt="image" src="https://github.com/user-attachments/assets/5309950d-9d6b-414a-bd1a-bf023f9f7a14" />
+End Effector 
+
+
 ### 5. Software Requirements Specification (SRS)
 
 *Formulate key software requirements here. Think deeply on the design: What must your device do? How will you measure this during validation testing? Create 4 to 8 critical system requirements.*
