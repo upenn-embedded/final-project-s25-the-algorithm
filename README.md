@@ -83,7 +83,7 @@ No additional definitions are needed.
 ### 8. Final Demo Goals
 
 *How will you demonstrate your device on demo day? Will it be strapped to a person, mounted on a bicycle, require outdoor space? Think of any physical, temporal, and other constraints that could affect your planning.*
-1. Place the delta manipulator on a table with multiple samples placed in different locations
+1. Place the delta manipulator on a table with multiple samples (i.e. the screw medium such as wood or metal and screw) placed in different locations
 - The screw will already be partially entered in the threading for each sample 
 2. Demonstrate end effector navigating to each sample, screwing the screw in, and unscrewing it, allowing the screw to fall down 
 
