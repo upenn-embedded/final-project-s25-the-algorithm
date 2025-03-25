@@ -119,8 +119,8 @@
         <mxCell id="lMMEnAEBY7Rnv78QAGbO-49" value="I2C: Step signal, direction of rotation&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="300" y="140" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="lMMEnAEBY7Rnv78QAGbO-50" value="PWM controls speed, direction of rotation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="280" y="170" width="230" height="30" as="geometry" />
+        <mxCell id="lMMEnAEBY7Rnv78QAGbO-50" value="PWM controls speed, Digital signal controls direction of rotation" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="210" y="170" width="350" height="30" as="geometry" />
         </mxCell>
         <mxCell id="lMMEnAEBY7Rnv78QAGbO-52" value="I2C: Direction of rotation, step count, speed" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="290" y="390" width="250" height="30" as="geometry" />
