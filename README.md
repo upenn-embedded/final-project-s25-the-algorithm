@@ -24,7 +24,7 @@ With our project, we are trying to solve the problem of manual assembly for manu
 ### 3. System Block Diagram
 
 *Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?*
-![image](https://github.com/user-attachments/assets/77dd5344-d6e6-4dd7-9d07-53e028960c14)
+![image](https://github.com/user-attachments/assets/78783ea3-6ce4-4814-bfc8-8f0cb87497eb)
 
 ### 4. Design Sketches
 
