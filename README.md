@@ -120,10 +120,13 @@ We need NEMA23 motors, motor controllers, a power supply, flange couplers, NEMA2
 ## Sprint Review #1
 
 ### Last week's progress
+Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation.
 
 ### Current state of project
+Although we have made progress with initial testing and mechanical assembly, we are still waiting on the majority of parts to arrive, so we are mostly blocked from any further progress in our current state.
 
 ### Next week's plan
+Based on the 
 
 ## Sprint Review #2
 
