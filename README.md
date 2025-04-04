@@ -122,8 +122,9 @@ We need NEMA23 motors, motor controllers, a power supply, flange couplers, NEMA2
 ### Last week's progress
 Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation.
 
+
 ### Current state of project
-Although we have made progress with initial testing and mechanical assembly, we are still waiting on the majority of parts to arrive, so we are mostly blocked from any further progress in our current state.
+Although we have made progress with initial testing and mechanical assembly, we are still waiting on the majority of parts to arrive, so we are mostly blocked from any further progress in our current state. However, we are still able to make progress, as outlined in the "Next week's plan" section.
 
 ### Next week's plan
 Based on the current state of our project, next week's plan involves progress in the hardware, software, and mechanical domains. Although we are still blocked due to the majority of our parts having not yet arrived, we are able to make important progress in some important areas: screw detection and screw divot angle detection in OpenCV, precise motor control and closed-loop feedback for motor position based using the ATmega328pb, and fully assembling the mechanical components of our project (given that our parts arrive in a timely manner). Furthermore, if we make solid progress in these areas, we will devise a high-level policy for our inverse kinematics for the delta robot arm.
