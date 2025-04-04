@@ -120,17 +120,28 @@ We need NEMA23 motors, motor controllers, a power supply, flange couplers, NEMA2
 ## Sprint Review #1
 
 ### Last week's progress
-Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation. We linked a [video](https://drive.google.com/file/d/16dpmQQ3RvTcFo5i6i9GO-tgf3tGaEsDI/view?usp=drive_link) demonstrating stepper motor control with our MCU and motor driver, along with images of our precision-manufactured top plate and bicep, which you can see below.
+Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation.
+
+Based on our testing, we observed that the motor drivers and stepper motors successfully interface with the MCU. We also observed that our manufactured top plate and biceps were manufactured correct: the dimensions match and the parts fit well with each other. We linked a [video](https://drive.google.com/file/d/16dpmQQ3RvTcFo5i6i9GO-tgf3tGaEsDI/view?usp=drive_link) demonstrating stepper motor control with our MCU and motor driver, along with images of our precision-manufactured top plate and bicep, which you can see below.
 
 ![image](https://github.com/user-attachments/assets/4263ab9f-5866-4fe5-9de7-48d5fb81ee17)
 
 ![image](https://github.com/user-attachments/assets/7ee64358-9cd2-4ea0-9587-2e692d12a526)
 
 ### Current state of project
-Although we have made progress with initial testing and mechanical assembly, we are still waiting on the majority of parts to arrive, so we are mostly blocked from any further progress in our current state. However, we are still able to make progress, as outlined in the "Next week's plan" section.
+The state of the project right now includes custom waterjetted aluminum parts and a successful test of our stepper motor and stepper motor drivers. Although we have made progress with initial testing and mechanical assembly, we are blocked on our hardware status: everything 
+we have works properly, but we're still waiting on the majority of parts to arrive, so we are mostly blocked from any further progress in our current state. The tasks that we've currently completed align with our end goal: correctly fabricating our mechanical aluminum parts is essential for our final product, and validating motor control is an important first step toward achieving precise, sub-millimeter level control of our end effector, which is our screw. 
 
 ### Next week's plan
-Based on the current state of our project, next week's plan involves progress in the hardware, software, and mechanical domains. Although we are still blocked due to the majority of our parts having not yet arrived, we are able to make important progress in some important areas: screw detection and screw divot angle detection in OpenCV, precise motor control and closed-loop feedback for motor position based using the ATmega328pb, and fully assembling the mechanical components of our project (given that our parts arrive in a timely manner). Furthermore, if we make solid progress in these areas, we will devise and validate high-level control algorithm for our inverse kinematics for the delta robot arm.
+Based on the current state of our project, next week's plan involves progress in the hardware, software, and mechanical domains. Although we are still blocked due to the majority of our parts having not yet arrived, we are able to make important progress in some important areas: 
+
+1) Screw detection and screw divot angle detection in OpenCV on Raspberry Pi (Eric - 6 hours); considered done if the screw angle detection is within 3 degrees of the actual angle.
+2) Precise motor control and closed-loop feedback for motor position based using the ATmega328pb (Derek and Ben - 6 hours); motor control and feedback is considered done if sub-3-millimeter control is achieved.
+3) Establishing working I2C communication between Raspberry Pi and ATmega328pb (Derek and Eric - 4 hours); considered done if the Raspberry Pi is able to send custom information to the ATmega328pb and the ATmega328pb is able to correctly read it.
+4) Fully assembling the mechanical components of our project, given that our parts arrive in a timely manner (Ben - 1 hour); considered done if all of our available parts are assembled together
+5) OPTIONAL: Furthermore, if we make solid progress in these areas, we will devise and validate high-level control algorithm for our inverse kinematics for the delta robot arm (Ben - 3 hours).
+
+Our end goal is to create sub-1-degree angle detection and sub-1-millimeter control for our motor, but for this sprint, we are primarily concerned with high-level functionality.
 
 ## Sprint Review #2
 
