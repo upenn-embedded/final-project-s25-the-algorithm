@@ -120,7 +120,11 @@ We need NEMA23 motors, motor controllers, a power supply, flange couplers, NEMA2
 ## Sprint Review #1
 
 ### Last week's progress
-Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation.
+Last week, our primary focus was to receive approval for our BOM and secure outside fundraising for the additional amount necessary for our project. Both of these goals were completed, and we've made progress with mechanical assembly as well as some initial testing. Our stepper motors and motor drivers were delivered the past week, and they were both tested on an Arduino Uno. We were able to control the motor using the motor drivers from the Arduino. Regarding the mechanical assembly, we successfully manufactured our top plate (holding the three stepper motors for the Delta robot topology), as well as one bicep for each of our three robotic arms. This was done in Pennovation. We linked a video demonstrating stepper motor control with our MCU and motor driver, along with our precision-manufactured bicep and top plate, below.
+[https://drive.google.com/file/d/16dpmQQ3RvTcFo5i6i9GO-tgf3tGaEsDI/view?usp=drive_link](url)
+![image](https://github.com/user-attachments/assets/4263ab9f-5866-4fe5-9de7-48d5fb81ee17)
+![image](https://github.com/user-attachments/assets/7ee64358-9cd2-4ea0-9587-2e692d12a526)
+
 
 
 ### Current state of project
