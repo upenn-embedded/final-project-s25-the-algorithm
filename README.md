@@ -147,9 +147,20 @@ Our end goal is to create sub-1-degree angle detection and sub-1-millimeter cont
 
 ### Last week's progress
 
+1) Assembled hardware - wire the motor drivers, voltage regulators, stepper motors. Mount onto laser-cut scaffolding. 
+2) Configure Raspberry Pi with needed packages to allow for Open CV
+3) In the process for establishing I2C connection between ATMega328PB with Raspberry Pi
+4) Produce simulations of inverse kinematics for control of the arms - initial code written in Matlab for testing 
+
 ### Current state of project
 
+There is progress made in all fronts: hardware assembled, raspberry pi development, and logic for controlling the stepper motors. 
+
 ### Next week's plan
+
+1) Finetune the control of the arms via incorporating interpolation to smooth the travel of the arms across points. This needs to be developed with memory limitations in mind, because we need to precalculate the intermediate points between the start and end before the arm begins its journey
+2) Implement the stepper motor control in bare metal C.
+3) Implement the end effector - both hardware and bare metal control 
 
 ## MVP Demo
 
