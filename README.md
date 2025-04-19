@@ -57,9 +57,20 @@ End Effector
 Be it henceforth known, under the jurisdiction of the City of Philadelphia, Commonwealth of Pennsylvania, and United States of America, that the "ATmega328pb" will be referred to as the "MCU." The "delta robot manipulator" is the "robotic arm." The "end effector" is the part of the robotic arm which makes contact with objects: in our project, the end effector is the screwdriver attached to a brushed DC motor. The "screw drive" is the recession pattern contained in the screw head.
 
 **5.2 Functionality**
+New softwaqre requirements using only the parts we currently have. 
 
-| ID     | Description                                                                                                                                                                                                              |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ID     | Description                                                                                                                                                       | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| SRS-01 | Motor + Encoder Closed Loop - 
+The MCU will read pulses from the magnetic encoder attached to the end effector motor to calculate the actual RPM once every 0.01 seconds. The desired RPM will be compared to the actual RPM, and the MCU will adjust the PWM duty cycle driving the brushed DC motor accordingly. If the RPM error exceeds 10% for more than 1 second, the system will report that the screwdriver is jammed, meaning that it has finished screwing the screw in and it can stop spinning. |
+| SRS-02 | Gyroscope 
+The MCU will request data from the gyroscope sensor over I2C at a clock speed of 400 kHz. Every 0.01 seconds, the MCU will read 6 consecutive bytes corresponding to the 3-axis angular velocity measurements (X, Y, Z) from the gyroscope. The MCU will use this data to track the rotational motion of the end effector in real time.  |
+| SRS-03 | Stepper motors 
+The MCU will control the speed of each stepper motor by adjusting the frequency of the digital pulse signals sent to the step input of the stepper motor driver. The desired rotational speed will be mapped to a corresponding step pulse frequency, with higher frequencies resulting in faster motor rotation. |
+| SRS-04 | Buttons for human control 
+The MCU will monitor two buttons connected to digital input pins: a START/RESUME button and an EMERGENCY STOP (kill switch) button. These buttons will be configured to trigger Pin Change Interrupts (PCINT) to ensure immediate response regardless of the MCU’s main execution state. Upon detecting a rising or falling edge, the MCU will debounce the signal in software (using a 20 ms debounce delay) and then update system state accordingly.  |
+
+Original Software Requirements assuming we had all the parts. 
+| ID     | Description                                                                                                                                                       | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | SRS-01 | Camera and computer vision: Before every screw assembly operation, the camera will capture an image and report the (x, y) coordinates of all the screws which need to be assembled. Potentially, the z-coordinate can also be calculated from the image based on a known calibration of object size at a known distance, but this will be determined during testing. The angle of the screw drive (the "+") will be detected by the camera as well using OpenCV. The coordinate and angle information will be sent via I2C at 100 kHz from the Raspberry Pi connected to the camera to the MCU, and the MCU will rotate the screwdriver to an angle which matches the screw drive. |
 | SRS-02 | Screwdriver engagement with screw identification: The MCU will calculate the (x, y, z) position of the end effector screwdriver once every 0.01 seconds. If no change is detected in the (x, y, z) position of the screwdriver for more than 0.20 seconds during a screw assembly operation, the MCU will realize that the screwdriver has made sufficient contact with the screw. |
 | SRS-03 | Screwdriver completed screwing detection: While the screwdriver is turning the screw, the MCU will poll the motor current every 0.01 seconds and stop when the brushed DC motor attached to the screwdriver has a current which exceeds the threshold for a jam for more than 20 consecutive polls. At this point, we will know that the screw has been successfully assembled: the brushed DC motor will be turned off, and the robotic arm will assemble the next screw. |
@@ -78,6 +89,22 @@ Be it henceforth known, under the jurisdiction of the City of Philadelphia, Comm
 No additional definitions are needed. 
 
 **6.2 Functionality**
+
+New Hardware Requirements using just the parts we have.  
+
+| ID     | Description                                                                                                                        |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| HRS-01 | Motor + Encoder Closed Loop - 
+The brushed DC motor encoder must be capable of detecting RPM drops below 90% of target speed sustained over 1 second to flag completion of the screwing operation.  |
+| HRS-02 | Gyroscope - 
+The gyroscope sensor must support I2C communication at 400 kHz and output 3-axis angular velocity data at a minimum rate of 100 Hz. It must detect with plus or minus 5% angle error for the end effector.  |
+| HRS-03 | Stepper motors - The stepper motor drivers must support a pulse frequency range of between 2 kHz to 8 Hz to allow fine-grained speed control. The stepper motors must have sufficient torque and resolution (e.g., 200 steps/rev with 1/16 microstepping) to support smooth motion across the required speed range.  |
+| HRS-04 | Buttons for human control 
+Two buttons must be connected to digital I/O pins on the ATmega328PB that support Pin Change Interrupts (PCINT). The electrical design must ensure clean rising or falling edge transitions suitable for interrupt triggering, with minimal signal bounce. |
+| HRS-05 | Power Management: 
+Power supply must consistently provide regulated voltage and currency capacity. A 24V and 15A Voltage Regulator is sufficient for the system. |
+
+Original Hardware Requirements assuming we had all the parts. 
 
 | ID     | Description                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,18 +195,37 @@ There is progress made in all fronts: hardware assembled, raspberry pi developme
 
 1. Show a system block diagram & explain the hardware implementation.
 2. Explain your firmware implementation, including application logic and critical drivers you've written.
-3. Demo your device.
-4. Have you achieved some or all of your Software Requirements Specification (SRS)?
+We wrote code in the main.c file that allows the MCU to control the three stepper motors. Currently, it sends pulses that can be tuned using different delays. The motor takes a step each time there is a rising edge so the speed of the stepper motor is adjusted by changing the delays. There is a maximum speed they can go due to the hardware limitations, which we found to be corresponding to around 125 us. 
+We wrote code in endeffector.c that spins the DC motor and is controlled by a button and killswitch. While the killswitch port is high, the motor will spin. By default, it spins counterclockwise. When the user presses the button attached to PB2, the motor spins clockwise. 
+We wrote code in test_encoder.c which takes in data from the motor encoder and stabilizes the RPM of the motor. The speed of the motor is a product of the voltage of the power it receives and the duty cycle of the PWM that is sent to the “ENA” (enable) pin on the L298N. The encoder reports the actual RPM and the error is calculated, and the duty cycle of the PWM is changed (via updating the OCR0A) 
+We wrote code in delta_ik_solver.c that checks if the delta robot can reach a specific point in space and provides the joint angles required to do so, using geometric inverse kinematics and solving trigonometric equations per arm.
 
+4. Demo your device.
+Please find the videos uploaded in this github that showcase the code 
+
+6. Have you achieved some or all of your Software Requirements Specification (SRS)?
    1. Show how you collected data and the outcomes.
-5. Have you achieved some or all of your Hardware Requirements Specification (HRS)?
+We made code that can calculate the RPM of the DC motor using the encoder data. 
+We made code that can calculate the RPM of the DC motor using the encoder data. 
+We demonstrate the stepper motors being controlled by the speed of the pulses being sent. 
+We demonstrate the buttons working through reading the states of the pins but we will later implement it with PCINT. 
 
+7. Have you achieved some or all of your Hardware Requirements Specification (HRS)?
    1. Show how you collected data and the outcomes.
-6. Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.
-7. What is the riskiest part remaining of your project?
+We showed the stepper motor requirements by testing the limits of how fast the signal must be and determined it was 8 kHz. We found the signal must be a minimum of 2 kHz or it wouldn’t be able to turn the motor. 
+We demonstrate lack of debouncing for the buttons. 
+We demonstrate that the power supply is able to sufficiently power the stepper motors. 
 
+8. Show off the remaining elements that will make your project whole: mechanical casework, supporting graphical user interface (GUI), web portal, etc.
+We still need to receive many mounting parts. They will allow us to achieve more functionality by allowing us to use the stepper motors to control the stepper motor. 
+We need to implement the gyroscope. This was an idea only decided today upon receiving feedback from our account manager. 
+
+10. What is the riskiest part remaining of your project?
+The riskiest part of the project is whether our parts will arrive. If they do, then we can achieve a lot more of our original functionality. 
    1. How do you plan to de-risk this?
-8. What questions or help do you need from the teaching team?
+If this doesn’t happen, the new requirements specified above will be what we will achieve to still implement the principles learned in the class. 
+11. What questions or help do you need from the teaching team?
+None. Discussed with our account manager all the questions we had. 
 
 ## Final Project Report
 
