@@ -27,7 +27,8 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 This is the final block diagram. 
 
-![image](https://github.com/user-attachments/assets/1dd1a355-27b3-46a4-bfca-aeffffecbb1c)
+![image](https://github.com/user-attachments/assets/e32c88af-5eb0-4f88-bc79-04b1309183ef)
+
 
 This is the original block diagram.
 
@@ -198,7 +199,8 @@ There is progress made in all fronts: hardware assembled, raspberry pi developme
 
 Updated block diagram: 
 
-![image](https://github.com/user-attachments/assets/e1cc3ec3-7693-42f6-ad17-de6b39bb0a92)
+![image](https://github.com/user-attachments/assets/e8d63225-edd0-4367-85de-bdfd90724b54)
+
 
 3. Explain your firmware implementation, including application logic and critical drivers you've written.
 
