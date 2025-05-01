@@ -294,11 +294,11 @@ Reflect on your project. Some questions to address:
 
 **What accomplishments are you proud of?**
 
-
+We are proud of assembling a mechanically complex device, a delta robot screwdriver arm, and successfully engineering the controls using fundamental electrical engineering circuits and sensors and bare-metal C. Additionally, we were proud of successfully integrating all of our subsystems to provide a successful demo.
 
 **What did you learn/gain from this experience?**
 
-
+We developed our skills in working with the ATmega328pb microcontroller; programming, testing, and debugging in bare-metal C; and devising creative solutions to successfully build our delta robot even when parts were missing. We also gained experience in working together as a team, with each member contributing towards an important subsytem of the project. One important lesson we learned during the engineering process is that solutions should first be solved mechanically, then electrically, then through software. Solving a problem mechanically places less demands on the electronics and software; solving a problem electrically (such as an RC low-pass filter for button debouncing) leads to less complexity and compute demands for our software.
 
 **Did you have to change your approach?**
 
