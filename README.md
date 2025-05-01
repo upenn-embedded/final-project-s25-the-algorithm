@@ -275,14 +275,18 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 *Based on your quantified system performance, comment on how you achieved or fell short of your expected requirements.*
 
+Overall, our project's hardware did fall short of our initial, expected requirements, which was to build an automated screwdriver machine with sub-millimeter precision. Our final product fell short because we were missing a number of critical parts that we ordered: ball joint rod ends, which never arrived, and our flange-mount couplers, which arrived three days before demo day. This was a fundamental hurdle that we couldn't overcome. So, we pivoted, and adjusted our requirements. Instead of a fully automated screwdriver machine, we decided to demonstrate the fundamentals of a delta robot, using a joystick to move the end effector up and down, and an accelerometer to make sure the plate remains level. During demo day, we achieved these requirements!
+
 *Did your requirements change? If so, why? Failing to meet a requirement is acceptable; understanding the reason why is critical!*
+
+Yes. Many of our parts didn't arrive on time, so we changed our requirements from a fully-automated screwdriver to a simpler task, just involving vertical translation using user-input via a joystick, as well as an accelerometer.
 
 *Validate at least two requirements, showing how you tested and your proof of work (videos, images, logic analyzer/oscilloscope captures, etc.).*
 
 | ID     | Description                                                                                                                        | Validation Outcome                                                                                                      |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| HRS-01 | A distance sensor shall be used for obstacle detection. The sensor shall detect obstacles at a maximum distance of at least 10 cm. | Confirmed, sensed obstacles up to 15cm. Video in "validation" folder, shows tape measure and logged output to terminal. |
-|        |                                                                                                                                    |                                                                                                                         |
+| HRS-02 | Accelerometer Sensor: The accelerometer must support I2C communication at 100 kHz and provide 16-bit resolution X, Y, and Z acceleration data at a minimum output rate of 10 Hz. | Confirmed, we communicated over I2C with the accelerometer, and detected angular changes, which turned the LED on. Refer to our project video for proof. |
+| HRS-05 | Power Management: Power supply must consistently provide regulated voltage and currency capacity. A 24V and 15A Voltage Regulator is sufficient for the system.                                                                                                                                   | We used a MeanWell 350W 24V output supply. As can be seen from our video, it supplied a constant, well-regulated supply of 24VDC power to our stepper drivers |
 
 ### 4. Conclusion
 
@@ -290,7 +294,11 @@ Reflect on your project. Some questions to address:
 
 **What did you learn from it?**
 
+We learned a lot about how important it is to simulate and build mathematical models of projects before executing. Solving the inverse kinematics in MATLAB first (rather than trying to figure it out in C!) made the C implementation a lot easier and straightforward. In a proper design (in an industrial / commercial setting), it would be critical to extend these simulations further, analyzing inverse-dynamics in addition to inverse-kinematics.
+
 **What went well?**
+
+The CAD and electronics. We manufactured the top plate and proximal arms using waterjetting. All the holes aligned, and there were no tolerancing issues! Also, the motor control went very smoothly. We only ran into a couple small bugs with the stepper drivers, but those were quickly solved and we achieved very stable control of the NEMA23s.
 
 **What accomplishments are you proud of?**
 
