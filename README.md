@@ -290,11 +290,19 @@ Reflect on your project. Some questions to address:
 
 **What did you learn/gain from this experience?**
 
+
+
 **Did you have to change your approach?**
+
+Yes, our approach changed in multiple ways. Our original project scope expanded beyond the time allotted for our project, so we decided to eliminate the computer vision functionality for our screw detection, opting instead to focus on our bare-metal C firmware programming, delta robot arm controls, end effector functionality, and I2C accelerometer accuracy and reliability. Additionally, since one of our critical components did not arrive, our delta robot arm was missing its forearms, and we would have had little to show for our demo. Thus, we decided to create makeshift forearms by tying wires and duct-taping them to metal rods, which ensured that we were still able to provide an impressive and successful demo.
 
 **What could have been done differently?**
 
+Improving our software design is one thing we could have done differently, something which would have significantly enhanced the testing and debug process. Rather than combining all of our code into a single main.c file, we should have first determined our overall file structure with header and source files, as well as defining the function behaviors and interfaces before writing actual code. This would have allowed us to isolate different subsystems in an easier way, reducing the time needed to debug our firmware.
+
 **Did you encounter obstacles that you didn’t anticipate?**
+
+The main unanticipated obstacle during our project development process was that almost all of our parts arrived late, and some of them simply did not arrive. As a result, our team was unable to conduct full-system integration tests to verify the functionality of our screwdriver robot. However, we were still able to execute upon much of our original vision by designing a creative substitute for our missing parts.
 
 **What could be a next step for this project?**
 
