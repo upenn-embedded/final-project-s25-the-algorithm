@@ -266,7 +266,10 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 
 | ID     | Description                                                                                               | Validation Outcome                                                                          |
 | ------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| SRS-01 | The IMU 3-axis acceleration will be measured with 16-bit depth every 100 milliseconds +/-10 milliseconds. | Confirmed, logged output from the MCU is saved to "validation" folder in GitHub repository. |
+| SRS-01 | Motor + Encoder Closed Loop: While we did enable the motor to rotate, we did not implement the encoder feature because we realized it wasn't possible to detect the "jammed" state because we were no longer attempting to screw a screwdriver into a position.  | N/A 
+| SRS-02 | Accelerometer-Based Orientation Detection:  We were successful in implementing this requirement. We were able to calculate the pitch and roll angles and detect when the end effector was more than 15 degrees off of the parallel plane with respect to the ground. | The screenshot here from the video illustrates this.  
+| SRS-03 | Stepper motors: We were successful in controlling the speed of the stepper motors. The frequency of the digital pulses we sent controlled how fast the stepper motor took a step. | N/A 
+| SRS-04 | Joystic for human control: We successfully implemented the joystick control. When the ADC value was above 800, the stepper motor would rotate clockwise. When the ADC value was below 300, the motor rotated counterclockwise. When the value is between, the stepper motors did not move. | N/A 
 
 #### 3.2 Hardware Requirements Specification (HRS) Results
 
