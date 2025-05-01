@@ -245,11 +245,13 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 [Insert final project images here]
 
 *Include photos of your device from a few angles. If you have a casework, show both the exterior and interior (where the good EE bits are!).*
-![side](https://github.com/user-attachments/assets/5a04b60e-3e03-4706-b558-735ea4483088)
 
-![bottom](https://github.com/user-attachments/assets/dbccd429-c614-4d7c-9594-dd2c10b60630)
+![WhatsApp Image 2025-05-01 at 11 49 26 AM (4)](https://github.com/user-attachments/assets/ca783c2a-2ce0-4aac-b5bc-f0690849273a)
+![WhatsApp Image 2025-05-01 at 11 49 26 AM (3)](https://github.com/user-attachments/assets/4cf60ada-0664-42e4-aa3e-9991f2ae4a6d)
+![WhatsApp Image 2025-05-01 at 11 49 26 AM (2)](https://github.com/user-attachments/assets/f857417b-5d37-4deb-9126-51cdd06c5f51)
+![WhatsApp Image 2025-05-01 at 11 49 26 AM (1)](https://github.com/user-attachments/assets/1b943289-f66f-4484-b7d3-9fb288db9f29)
+![WhatsApp Image 2025-05-01 at 11 49 26 AM](https://github.com/user-attachments/assets/e45cd358-a239-45a3-bdce-f7c93d0c5676)
 
-![complete](https://github.com/user-attachments/assets/69034c65-44e9-4dcc-b036-7bff3b777460)
 
 
 ### 3. Results
