@@ -286,6 +286,8 @@ Reflect on your project. Some questions to address:
 
 **What accomplishments are you proud of?**
 
+
+
 **What did you learn/gain from this experience?**
 
 **Did you have to change your approach?**
@@ -295,6 +297,8 @@ Reflect on your project. Some questions to address:
 **Did you encounter obstacles that you didn’t anticipate?**
 
 **What could be a next step for this project?**
+
+Since our ultimate vision for our project is to create a fully-autonomous screwdriver robot, some exciting future steps exist for this project. Creating a screw detection algorithm, detecting the angle of the screw head and the three-dimensional coordinates of the top of the screw head would be the first step. Afterward, once we receive all of our parts, including the ball joints, we would have a full delta robot, so another step would be to validate sub-millimeter precision for controlling the delta robot arm. The third step would be to perfect the screwdriving capabilities of the end effector screwdriver, ensuring that it successfully screws in parts with high reliability. The final step would be to integrate all of the first three steps, designing a policy which determines the shortest path between a set of screws to maximize the speed of manufacturing.
 
 ## References
 
