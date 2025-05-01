@@ -5,7 +5,7 @@
 * Team Name: The Algorithm
 * Team Members: Derek He, Ben Saxon, Eric Li
 * GitHub Repository URL: https://github.com/upenn-embedded/final-project-s25-the-algorithm
-* GitHub Pages Website URL: [for final submission]
+* GitHub Pages Website URL: https://upenn-embedded.github.io/final-project-s25-the-algorithm/
 
 ## Final Project Proposal
 
