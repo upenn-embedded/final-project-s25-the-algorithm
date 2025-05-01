@@ -25,6 +25,12 @@ With our project, we are trying to solve the problem of manual assembly for manu
 
 *Show your high level design, as done in WS1 and WS2. What are the critical components in your system? How do they communicate (I2C?, interrupts, ADC, etc.)? What power regulation do you need?*
 
+This is the final block diagram. 
+
+![image](https://github.com/user-attachments/assets/1dd1a355-27b3-46a4-bfca-aeffffecbb1c)
+
+This is the original block diagram.
+
 ![image](https://github.com/user-attachments/assets/eb4abf02-5a3a-4985-b01c-9b5c04f4be33)
 
 
@@ -189,7 +195,12 @@ There is progress made in all fronts: hardware assembled, raspberry pi developme
 ## MVP Demo
 
 1. Show a system block diagram & explain the hardware implementation.
-2. Explain your firmware implementation, including application logic and critical drivers you've written.
+
+Updated block diagram: 
+
+![image](https://github.com/user-attachments/assets/e1cc3ec3-7693-42f6-ad17-de6b39bb0a92)
+
+3. Explain your firmware implementation, including application logic and critical drivers you've written.
 
 We wrote code in the main.c file that allows the MCU to control the three stepper motors. Currently, it sends pulses that can be tuned using different delays. The motor takes a step each time there is a rising edge so the speed of the stepper motor is adjusted by changing the delays. There is a maximum speed they can go due to the hardware limitations, which we found to be corresponding to around 125 us. 
 We wrote code in endeffector.c that spins the DC motor and is controlled by a button and killswitch. While the killswitch port is high, the motor will spin. By default, it spins counterclockwise. When the user presses the button attached to PB2, the motor spins clockwise. 
