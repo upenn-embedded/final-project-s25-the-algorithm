@@ -279,13 +279,21 @@ If you’ve never made a GitHub pages website before, you can follow this webpag
 ### 4. Conclusion
 
 Reflect on your project. Some questions to address:
+
 **What did you learn from it?**
+
 **What went well?**
+
 **What accomplishments are you proud of?**
+
 **What did you learn/gain from this experience?**
+
 **Did you have to change your approach?**
+
 **What could have been done differently?**
+
 **Did you encounter obstacles that you didn’t anticipate?**
+
 **What could be a next step for this project?**
 
 ## References
